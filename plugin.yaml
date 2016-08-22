@@ -1,0 +1,12 @@
+name: Rundeck Authentication Module
+version: 0.1
+rundeckPluginVersion: 1.1
+author: chuck.hilyard@reachlocal.com
+date: 8/22/2016
+providers:
+    - name: Rundeck Authentication Module
+      service: WorkflowNodeStep
+      plugin-type: script
+      script-interpreter: /usr/bin/env ruby
+      script-file: authentication.rb
+      script-args: arg1 arg2
