@@ -1,6 +1,5 @@
 
 # a shared authencation module for the peer rundeck plugins
-# stubbing this out.
 #
 #
 
@@ -12,15 +11,14 @@ class RundeckAuthencation()
 
     def calledfrom
         print "were we called from rundeck or the cli?\n"
+        print "return the call source\n"
     end
 
     def setcredentials
         print "depending on how we're called (cli or rundeck)\n"
         print "and what job we're executing, grab credentials.\n"
-    end
-    }
-
-    def targetjob
+        print "use the builtin credentials first, only prompt\n"
+        print "if we must\n"
         print "does the target job use the calling user's AD credentials\n"
         print "or the shared rundeck users credentials?"
         # 
@@ -33,6 +31,10 @@ class RundeckAuthencation()
         #   shared account and utilize the rundeck built-in variable for the calling user
     end
 
+    def checkcredentials
+        print "verify that username and password are set in the current object\n"
+    end
+
     def requestcreds
         print "called from the command line, you'll need to supply your username/password\n"
         print "username: "
@@ -41,4 +43,4 @@ class RundeckAuthencation()
         print "password: "
         password = STDIN.noecho(&:gets).chomp
     end
-
+    }
