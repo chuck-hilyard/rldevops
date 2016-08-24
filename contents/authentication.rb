@@ -7,6 +7,8 @@ class RundeckAuthencation()
     {
     def initialize
         print "you've created a RundeckAuthentication object\n"
+        username = ""
+        password = "" 
     end
 
     def calledfrom
@@ -35,10 +37,11 @@ class RundeckAuthencation()
         print "verify that username and password are set in the current object\n"
     end
 
+    # we only request credentials if the user has called from the CLI *and* username / password were not
+    # populated elsewhere
     def requestcreds
-        print "called from the command line, you'll need to supply your username/password\n"
         print "username: "
-        STDIN.gets.chomp
+        username = STDIN.gets.chomp
 
         print "password: "
         password = STDIN.noecho(&:gets).chomp
