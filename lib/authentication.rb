@@ -3,17 +3,18 @@
 #
 #
 
-class RundeckAuthencation()
-    {
+class AuthenticationHandler
+
     def initialize
-        print "you've created a RundeckAuthentication object\n"
-        username = ""
-        password = "" 
+        print "creating AuthenticationHandler object\n"
+        @username 
+        @password
     end
 
     def calledfrom
         print "were we called from rundeck or the cli?\n"
         print "return the call source\n"
+        return "cli"
     end
 
     def setcredentials
@@ -46,4 +47,5 @@ class RundeckAuthencation()
         print "password: "
         password = STDIN.noecho(&:gets).chomp
     end
-    }
+
+end

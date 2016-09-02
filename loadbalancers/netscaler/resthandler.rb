@@ -1,5 +1,3 @@
-# no shebang here.  this is called from rundeck or a cli wrapper
-
 ###
 # this is a functional piece of work.  it's not DRY nor are data and behavior separate.  this message goes bye bye once we've refactored
 ###
@@ -7,15 +5,12 @@
 #
 # handle all the REST calls to the netscaler load balancer, here.
 #
-# we'll want a cli in front of this in addition to using rundeck or some other rbac gui frontend
-#
 
 require 'json'
 require 'net/http'
 require 'io/console'
-require_relative '../../rl_credentials/lib/credentials.rb'
-
-include RLCredentials
+#require_relative '../../rl_credentials/lib/credentials.rb'
+#include RLCredentials
 
 
 class NSLBRestHandler

@@ -1,6 +1,6 @@
 #!/bin/bash
 # 
-# this is a front-end to pass variables to Ruby from the command line
+# this is a cli front-end to mock the rundeck frontend.
 
 cliargs()
 {
@@ -8,6 +8,19 @@ cliargs()
     echo -e "\t\t[ netscaler basiclb ]"
 }
 
+
+# this script should only be run from the top level directory as this is 
+# where rundeck will interface w/ the plugin
+if [ "$PWD" != "/Users/chuck.hilyard/projects/rldevops" ]
+    then
+        echo "run this from /Users/chuck.hilyard/projects/rldevops, only"
+        exit
+
+    else
+       :
+fi
+
+## RD_OPTION vars are built at execution time and maintained in the rundeck session
 export RD_OPTION_TICKETNUMBER="cmr-1255"
 #export RD_OPTION_TICKETNUMBER="disp-9999"
 export RD_JOB_USERNAME="chuck.hilyard"
@@ -15,7 +28,7 @@ export RD_JOB_ID="e57499ca-a118-4280-9095-802046417263"
 export RD_JOB_URL="http://rundeck-usa-app01.dev.wh.reachlocal.com:4440/project/Pre-Production/execution/follow/14"
 
 case $1 in
-        jira) /usr/bin/env ruby $1 $2;;
+        jira) /usr/bin/env ruby rldevops.rb;;
    netscaler) /usr/bin/env ruby $1 $2;;
            *) cliargs;;
 esac
