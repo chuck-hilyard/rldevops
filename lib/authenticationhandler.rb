@@ -6,7 +6,7 @@
 class AuthenticationHandler
 
     def initialize
-        print "creating AuthenticationHandler object\n"
+        print "AuthenticationHandler object initialization\n"
         @username 
         @password
     end
