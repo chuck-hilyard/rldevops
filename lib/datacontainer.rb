@@ -20,6 +20,7 @@ class DataContainer
         end
     end
 
+private
     # read the json configuration file.  it's managed by puppet which manages the global configuration and environments
     def load_environment_config
         configfile = File.read('lib/datacontainer.json')
