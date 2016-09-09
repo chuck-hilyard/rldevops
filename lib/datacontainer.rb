@@ -10,18 +10,25 @@ class DataContainer
     def initialize(*args) 
         print "DataContainer object initialization\n"
         if args.length < 1
-            abort("can't run w/o arguments")
+            abort("nothing to do w/o arguments")
         else
-            print "loading environment values\n"
-            configfile = File.read('lib/datacontainer.json')
-            confighash = JSON.parse(configfile)
-            puts JSON.pretty_print(confighash)
-            # load environments hash from json here
-            
-            print "processing arguments\n"
-            # check the args passed against the hash loaded from the json config file
-        end
+            # available environments, platforms, etc. will be managed by puppet
+            load_environment_config
 
+            # check the args passed from the cli/rundeck 
+            validate_arguments
+        end
+    end
+
+    # read the json configuration file.  it's managed by puppet which manages the global configuration and environments
+    def load_environment_config
+        configfile = File.read('lib/datacontainer.json')
+        @confighash = JSON.parse(configfile)
+    end
+
+    def validate_arguments
+        print "validating arguments\n"
+        #print "args passed", args.each
     end
 
 end

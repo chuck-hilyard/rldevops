@@ -1,7 +1,6 @@
 {
     "datacontainer" : { 
-          "platform" : [ {"usa"}, {"can"}, {"eur"}, {"gbr"}, {"jpn"}, {"aus"} ],
-        "datacenter" : [ {"lax"}, {"iad"}, {"ams"}, {"nrt"}, {"syd"}          ],
-       "environment" : [ {"dev"}, {"qa"},  {"stg"}, {"prod"}                  ]
+        "platform_dc" : [ { "usa" : "lax" }, { "can" : "iad" }, { "eur" : "ams" }, { "gbr" : "ams" }, { "jpn" : "nrt" }, { "aus" : "syd" }  ],
+        "environment" : [ "dev" , "qa", "stg", "prod" ]
     }
 }
