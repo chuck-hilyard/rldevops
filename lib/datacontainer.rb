@@ -27,7 +27,7 @@ class DataContainer
     end
 
     def validate_arguments
-        print "validating arguments\n"
+        print "DataContainer - validating arguments\n"
         #print "args passed", args.each
     end
 
