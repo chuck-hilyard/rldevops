@@ -13,8 +13,9 @@ class DataContainer
             abort("can't run w/o arguments")
         else
             print "loading environment values\n"
-            configfile = File.read('datacontainer.json')
+            configfile = File.read('lib/datacontainer.json')
             confighash = JSON.parse(configfile)
+            puts JSON.pretty_print(confighash)
             # load environments hash from json here
             
             print "processing arguments\n"

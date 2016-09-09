@@ -5,10 +5,10 @@ require_relative 'lib/datacontainer.rb'
 
 class RLDevOpsLoader
 
-    def initialize()
+    def initialize(*args)
         print "main()\n"
         auth_handler = AuthenticationHandler.new 
-        data_container = DataContainer.new
+        data_container = DataContainer.new(args)
     end
 
 end
