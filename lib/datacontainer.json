@@ -1,13 +1,7 @@
-# this should be replaced by a puppet template
 {
     "datacontainer" : { 
-        # available platforms
-        "platform" : [ {"usa"}, {"can"}, {"eur"}, {"gbr"}, {"jpn"}, {"aus"} ]
-
-        # available datacenters
-        "datacenter" : [ {"lax"}, {"iad"}, {"ams"}, {"nrt"}, {"syd"} ]
-
-        # available environments
-        "environment" : [ {"dev"}, {"qa"}, {"stg"}, {"prod"} ]
+          "platform" : [ {"usa"}, {"can"}, {"eur"}, {"gbr"}, {"jpn"}, {"aus"} ],
+        "datacenter" : [ {"lax"}, {"iad"}, {"ams"}, {"nrt"}, {"syd"}          ],
+       "environment" : [ {"dev"}, {"qa"},  {"stg"}, {"prod"}                  ]
     }
 }
