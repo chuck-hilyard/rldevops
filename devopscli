@@ -1,0 +1,53 @@
+#!/bin/bash
+# 
+# this is a cli front-end to mock the rundeck frontend.
+
+# plugins have a plugin.yaml file, this is how rundeck will interface w/ your plugin
+# it'll look something like this
+
+# example plugin.yaml
+# name: JIRA REST Handler
+# version: 0.1
+# rundeckPluginVersion: 1.1
+# author: chuck.hilyard@reachlocal.com
+# date: 7/25/2016
+# providers:
+#   -   name: JIRA REST Handler
+#       service: WorkflowNodeStep
+#       plugin-type: script
+#       script-interpreter: /usr/bin/env ruby
+#       script-file: resthandler.rb
+#       script-args: ticketnumber
+
+
+cliargs()
+{
+    echo -e "$0\t[ jira TICKETNUMBER ]" 
+    echo -e "\t\t[ netscaler basiclb ]"
+}
+
+
+# this script should only be run from the top level directory as this is 
+# where rundeck will interface w/ the plugin
+if [ "$PWD" != "/Users/chuck.hilyard/projects/rldevops" ]
+    then
+        echo "run this from /Users/chuck.hilyard/projects/rldevops, only"
+        exit
+
+    else
+       :
+fi
+
+## RD_OPTION vars are built at execution time and maintained in the rundeck session
+export RD_OPTION_TICKETNUMBER="cmr-1255"
+#export RD_OPTION_TICKETNUMBER="disp-9999"
+export RD_JOB_USERNAME="chuck.hilyard"
+export RD_JOB_ID="e57499ca-a118-4280-9095-802046417263"
+export RD_JOB_URL="http://rundeck-usa-app01.dev.wh.reachlocal.com:4440/project/Pre-Production/execution/follow/14"
+
+case $1 in
+        jira) /usr/bin/env ruby rldevopsloader.rb $@;;
+   netscaler) /usr/bin/env ruby rldevopsloader.rb $@;;
+           *) cliargs;;
+esac
+

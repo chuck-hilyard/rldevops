@@ -1,7 +1,16 @@
+# a shared authencation module which ensures that if credentials aren't set we'll go get 'em
+#
+# authentication sources;
+# user input
+# passmgr
+#
+# authentication types;
+# active directory/ldap
+# local to target
+# local rundeck json file (this should be very limited)
+# common 'rundeck' user (these users should be setup in AD or local to target) 
+#   and should have multiple levels of access
 
-# a shared authencation module for the peer rundeck plugins
-#
-#
 
 class AuthenticationHandler
 
@@ -11,13 +20,16 @@ class AuthenticationHandler
         @password
     end
 
-    def calledfrom
-        print "were we called from rundeck or the cli?\n"
-        print "return the call source\n"
-        return "cli"
+    def called_from
+        # if we're called from the command line we have the option of requesting the username
+        # and password from the user.  can't do that when called from rundeck
     end
 
-    def setcredentials
+    def call_passmanager
+        print "getting u/p from passmgr\n"
+    end
+
+    def set_credentials
         print "depending on how we're called (cli or rundeck)\n"
         print "and what job we're executing, grab credentials.\n"
         print "use the builtin credentials first, only prompt\n"
@@ -34,13 +46,13 @@ class AuthenticationHandler
         #   shared account and utilize the rundeck built-in variable for the calling user
     end
 
-    def checkcredentials
+    def check_credentials
         print "verify that username and password are set in the current object\n"
     end
 
     # we only request credentials if the user has called from the CLI *and* username / password were not
     # populated elsewhere
-    def requestcreds
+    def get_user_input
         print "username: "
         username = STDIN.gets.chomp
 

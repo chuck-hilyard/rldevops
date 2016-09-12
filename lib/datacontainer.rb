@@ -1,6 +1,7 @@
-# this will load our environment configuration into an object.  
+# this will load our environment metadata into an object.  
 # 
-# use puppet to manage the .json file
+# the rl environment (datacenters, endpoints, environments) are managed via puppet.  use puppet to
+# create a config file for us to import
 # 
 
 require 'JSON'
@@ -15,7 +16,8 @@ class DataContainer
             # available environments, platforms, etc. will be managed by puppet
             load_environment_config
 
-            # check the args passed from the cli/rundeck 
+            # check the args passed from the cli/rundeck and performa a quick sanity
+            # check against those we loaded from the config file.
             validate_arguments
         end
     end
@@ -29,7 +31,7 @@ private
 
     def validate_arguments
         print "DataContainer - validating arguments\n"
-        #print "args passed", args.each
+        print "args passed", args.each
     end
 
 end
