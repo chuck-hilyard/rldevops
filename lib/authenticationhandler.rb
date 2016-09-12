@@ -23,6 +23,12 @@ class AuthenticationHandler
     def called_from
         # if we're called from the command line we have the option of requesting the username
         # and password from the user.  can't do that when called from rundeck
+        case ENV['JOB_SOURCE'] 
+            when "devopscli"
+                print "called from command line\n"
+            else
+                print "called from RunDeck\n"
+        end
     end
 
     def call_passmanager

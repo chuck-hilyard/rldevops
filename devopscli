@@ -44,10 +44,11 @@ export RD_OPTION_TICKETNUMBER="cmr-1255"
 export RD_JOB_USERNAME="chuck.hilyard"
 export RD_JOB_ID="e57499ca-a118-4280-9095-802046417263"
 export RD_JOB_URL="http://rundeck-usa-app01.dev.wh.reachlocal.com:4440/project/Pre-Production/execution/follow/14"
+export JOB_SOURCE="devopscli"
 
 case $1 in
-        jira) /usr/bin/env ruby rldevopsloader.rb $@;;
-   netscaler) /usr/bin/env ruby rldevopsloader.rb $@;;
+        jira) /usr/bin/env ruby devopsloader.rb $@;;
+   netscaler) /usr/bin/env ruby devopsloader.rb $@;;
            *) cliargs;;
 esac
 

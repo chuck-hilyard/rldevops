@@ -18,7 +18,7 @@ class DataContainer
 
             # check the args passed from the cli/rundeck and performa a quick sanity
             # check against those we loaded from the config file.
-            validate_arguments
+            validate_arguments(args)
         end
     end
 
@@ -29,7 +29,7 @@ private
         @confighash = JSON.parse(configfile)
     end
 
-    def validate_arguments
+    def validate_arguments(args)
         print "DataContainer - validating arguments\n"
         print "args passed", args.each
     end
