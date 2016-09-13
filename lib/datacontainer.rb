@@ -8,7 +8,7 @@ require 'JSON'
 
 class DataContainer
 
-    def initialize(*args) 
+    def initialize(args) 
         print "DataContainer object initialization\n"
         if args.length < 1
             abort("nothing to do w/o arguments")
@@ -31,7 +31,6 @@ private
 
     def validate_arguments(args)
         print "DataContainer - validating arguments\n"
-        print "args passed", args.each
     end
 
 end
