@@ -6,14 +6,14 @@ require_relative 'lib/securityhandler.rb'
 
 class DevOpsLoader
 
-    def initialize(args)
+    def initialize
         print "main()\n"
         auth_handler = AuthenticationHandler.new 
-        data_container = DataContainer.new(args)
+        data_container = DataContainer.new
         security_handler = SecurityHandler.new
     end
 
 end
 
 
-rldevopsloader = DevOpsLoader.new(ARGV)
+rldevopsloader = DevOpsLoader.new
