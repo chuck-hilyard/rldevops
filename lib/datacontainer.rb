@@ -27,11 +27,13 @@ private
     def load_environment_config
         configfile = File.read('lib/datacontainer.json')
         @confighash = JSON.parse(configfile)
-        puts JSON.pretty_generate(@confighash)
+        #puts JSON.pretty_generate(@confighash)
     end
 
     def validate_arguments
         print "DataContainer - validating arguments\n"
+        #@request.body = { :login => { :username => "#{@username}", :password => "#{@password}" } }.to_json
+        index_hash = [ "jira", "lb", "node" ]
         ARGV.each { |x| print "x: ", x, "\n" }
     end
 

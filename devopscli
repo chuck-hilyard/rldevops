@@ -22,8 +22,9 @@
 
 cliargs()
 {
-    echo -e "$0\t[ jira TICKETNUMBER ]" 
-    echo -e "\t\t[ netscaler basiclb ]"
+    echo -e "$0\t[ jira ]  [ create|check ] [ ticketnumber ]" 
+    echo -e "\t\t[ lb   ]  [ add|remove ]   [ netscaler|elb ] [ basiclb|switchinglb ] [ dev|qa|stg|prod ] [ usa|can|eur|gbr|jpn|aus ]" 
+    echo -e "\t\t[ node ]  [ add|remove ]   [ ec2|xen|rlpc ]  [ dev|qa|stg|prod ]    [ web|app|admin|db ] [ usa|can|eur|gbr|jpn|aus ]" 
 }
 
 
