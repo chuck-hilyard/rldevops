@@ -7,7 +7,7 @@
 class SecurityHandler
 
     def initialize
-        print "SecurityHandler - object initialization\n"
+        print "SecurityHandler object initialization\n"
         print "SecurityHandler - ensure any production execution requires a JIRA ticket\n"
         ## check DataContainer::environment if 'prod'
         # then check DataContainer::jira_ticket_number

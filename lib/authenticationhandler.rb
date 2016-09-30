@@ -32,7 +32,7 @@ class AuthenticationHandler
     end
 
     def call_passmanager
-        print "getting u/p from passmgr\n"
+        print "getting username/password from passmgr\n"
     end
 
     def set_credentials

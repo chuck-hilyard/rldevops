@@ -10,8 +10,8 @@ class DataContainer
 
     def initialize 
         print "DataContainer object initialization\n"
-        if ARGV.length < 1
-            abort("nothing to do w/o arguments")
+        if ARGV.length < 2
+            abort("Insufficient arguments, aborting")
         else
             # available environments, platforms, etc. will be managed by puppet
             load_environment_config
@@ -30,11 +30,22 @@ private
         #puts JSON.pretty_generate(@confighash)
     end
 
+    # simplistic validation of arguments passed against those loaded from the environment
     def validate_arguments
-        print "DataContainer - validating arguments\n"
-        #@request.body = { :login => { :username => "#{@username}", :password => "#{@password}" } }.to_json
-        index_hash = [ "jira", "lb", "node" ]
-        ARGV.each { |x| print "x: ", x, "\n" }
+        print "DataContainer::validating KEY\n"
+        case ARGV[0].downcase
+        when 'jira', 'loadbalancer'
+            print "DataContainer::validating ACTION\n"
+            case ARGV[1].downcase
+                when 'create', 'check'
+                    return
+                else
+                    abort("invalid ACTION, aborting")
+                end
+        else
+            abort("invalid KEY, aborting")
+        end
+
     end
 
 end
