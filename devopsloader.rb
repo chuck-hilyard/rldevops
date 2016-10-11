@@ -1,16 +1,16 @@
 
 require_relative 'lib/authenticationhandler.rb'
 require_relative 'lib/datacontainer.rb'
-require_relative 'lib/securityhandler.rb'
+require_relative 'lib/authorizationhandler.rb'
 
 
 class DevOpsLoader
 
     def initialize
-        print "main()\n"
+        print "DevOpsLoader.initialize()\n"
         auth_handler = AuthenticationHandler.new 
         data_container = DataContainer.new
-        security_handler = SecurityHandler.new
+        authorization_handler = AuthorizationHandler.new
     end
 
 end

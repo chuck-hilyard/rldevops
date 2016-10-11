@@ -1,8 +1,8 @@
 # this will load our environment metadata into an object.  
 # 
 # the rl environment (datacenters, endpoints, environments) are managed via puppet.  use puppet to
-# create a config file for us to import
-# 
+# create a config file.  lib/datacontainer.json
+#  
 
 require 'JSON'
 
@@ -30,6 +30,8 @@ private
         #puts JSON.pretty_generate(@confighash)
     end
 
+    # this should be moved into its own class
+    #
     # simplistic validation of arguments passed against those loaded from the environment
     def validate_arguments
         print "DataContainer::validating KEY\n"

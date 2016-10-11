@@ -24,10 +24,10 @@ cliusage()
 {
     echo -e "* parameters are positional"
     echo -e "*\t\tKEY     \t ACTION           \t VALUES"
-    echo -e "$0\t[ jira ] \t [ create ]       \t [ type ] [ assignee ] [ note ]" 
+    echo -e "$0\t\t[ jira ] \t [ create ]       \t [ type ] [ assignee ] [ note ]" 
     echo -e "\t\t         \t [ check ]        \t [ ticketnumber ]" 
-    echo -e "\t\t[ lb   ] \t [ add|remove ]   \t [ netscaler|elb ] [ basiclb|switchinglb ] [ dev|qa|stg|prod ] [ usa|can|eur|gbr|jpn|aus ]" 
-    echo -e "\t\t[ node ] \t [ add|remove ]   \t [ ec2|xen|rlpc ]  [ dev|qa|stg|prod ]    [ web|app|admin|db ] [ usa|can|eur|gbr|jpn|aus ]" 
+    echo -e "\t\t[ lb   ] \t [ add|remove ]   \t [ dev|qa|stg|prod ] [ netscaler|elb ] [ basiclb|switchinglb ] [ usa|can|eur|gbr|jpn|aus ]" 
+    echo -e "\t\t[ node ] \t [ add|remove ]   \t [ dev|qa|stg|prod ] [ ec2|xen|rlpc ] [ web|app|admin|db ] [ usa|can|eur|gbr|jpn|aus ]" 
 }
 
 
