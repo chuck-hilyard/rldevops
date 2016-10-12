@@ -36,11 +36,12 @@ private
     def validate_arguments
         print "DataContainer::validating KEY\n"
         case ARGV[0].downcase
-        when 'jira', 'loadbalancer'
+        when 'jira', 'lb'
             print "DataContainer::validating ACTION\n"
             case ARGV[1].downcase
                 when 'create', 'check'
                     return
+                when 'add', 'remove'
                 else
                     abort("invalid ACTION, aborting")
                 end
