@@ -12,7 +12,6 @@ class RunTimeHandler
         auth_handler = AuthenticationHandler.new 
         data_container = DataContainer.new
         authorization_handler = AuthorizationHandler.new
-        runcontrol = RunControl.new
     end
 
 end
