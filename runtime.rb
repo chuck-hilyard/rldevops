@@ -5,7 +5,7 @@ require_relative 'lib/authorizationhandler.rb'
 require_relative 'lib/runcontrol.rb'
 
 
-class DevOpsLoader
+class RunTimeHandler
 
     def initialize
         print "DevOpsLoader.initialize()\n"
@@ -18,4 +18,4 @@ class DevOpsLoader
 end
 
 
-rldevopsloader = DevOpsLoader.new
+runtime = RunTimeHandler.new
