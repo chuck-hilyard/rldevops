@@ -15,10 +15,13 @@ class RunTimeHandler
     end
 
     def exec_task(args)
-        print "args1: ", args[0], "\n"
         case args[0]
         when 'jira'
             extend JiraRestHandler
+            ticketnumber = args[2]
+            parse_ticket(ticketnumber)
+            build_uri(ticketnumber)
+            call_rest_ticketstatus(ticketnumber)
         else
             abort("not sure what to exec_task")
         end

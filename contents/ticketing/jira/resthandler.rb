@@ -118,6 +118,3 @@ end
 # environment variables passed from rundeck.  this variable must be setup in the rundeck job
 ticketnumber = ENV["RD_OPTION_TICKETNUMBER"]
 
-#parse_ticket(ticketnumber)
-#build_uri(ticketnumber)
-#call_rest_ticketstatus(ticketnumber)
