@@ -11,13 +11,16 @@ class RunTimeHandler
         auth_handler = AuthenticationHandler.new 
         data_container = DataContainer.new
         authorization_handler = AuthorizationHandler.new
-        exec_task(ARGV)
     end
 
-    def exec_task(*args)
-        args.each { |x| 
-            print x 
-        } 
+    def exec_task(args)
+        print "args1: ", args[0], "\n"
+        case args[0]
+        when 'jira'
+            include 'ticketing/jira/resthandler.rb'
+        else
+            abort("not sure what to exec_task")
+        end
     end
 
 
@@ -25,3 +28,4 @@ end
 
 
 runtime = RunTimeHandler.new
+runtime.exec_task(ARGV)
