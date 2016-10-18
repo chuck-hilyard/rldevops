@@ -10,6 +10,8 @@
 #
 #
 
+module JiraRestHandler
+
 require 'json'
 require 'base64'
 require 'rest-client'
@@ -109,11 +111,13 @@ def call_rest_updateticket(ticketnumber)
     )
 end
     
+# end module def 
+end
 
 
 # environment variables passed from rundeck.  this variable must be setup in the rundeck job
 ticketnumber = ENV["RD_OPTION_TICKETNUMBER"]
 
-parse_ticket(ticketnumber)
-build_uri(ticketnumber)
-call_rest_ticketstatus(ticketnumber)
+#parse_ticket(ticketnumber)
+#build_uri(ticketnumber)
+#call_rest_ticketstatus(ticketnumber)

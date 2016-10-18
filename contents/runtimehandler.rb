@@ -2,6 +2,7 @@
 require_relative 'lib/authenticationhandler.rb'
 require_relative 'lib/datacontainer.rb'
 require_relative 'lib/authorizationhandler.rb'
+require_relative 'ticketing/jira/resthandler.rb'
 
 
 class RunTimeHandler
@@ -17,7 +18,7 @@ class RunTimeHandler
         print "args1: ", args[0], "\n"
         case args[0]
         when 'jira'
-            include 'ticketing/jira/resthandler.rb'
+            extend JiraRestHandler
         else
             abort("not sure what to exec_task")
         end
