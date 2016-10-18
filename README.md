@@ -5,5 +5,10 @@ Rundeck plugin developer guide -> http://rundeck.org/docs/developer/plugin-devel
 rake this area to build the plugin format for rundeck use
 
 
-
-GETTING REFACTORED
+Directory structure
+[name]-plugin.zip
+\- [name]-plugin/ -- root directory of zip contents, same name as zip file
+   |- plugin.yaml -- plugin metadata file
+      \- contents/
+            |- ...      -- script or resource files
+                  \- ...
