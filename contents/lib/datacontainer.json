@@ -1,0 +1,6 @@
+{
+    "datacontainer" : { 
+        "platform_datacenter" : [ { "usa" : "lax" }, { "can" : "iad" }, { "eur" : "ams" }, { "gbr" : "ams" }, { "jpn" : "nrt" }, { "aus" : "syd" }  ],
+        "environment" : [ "dev" , "qa", "stg", "prod" ]
+    }
+}
