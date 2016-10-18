@@ -52,7 +52,7 @@ export JOB_SOURCE="devopscli"
 
 if [ "$*" ]
     then 
-        /usr/bin/env ruby runtime.rb $@
+        /usr/bin/env ruby runtimehandler.rb $@
 
     else
         cliusage
