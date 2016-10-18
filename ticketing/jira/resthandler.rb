@@ -105,7 +105,7 @@ def call_rest_updateticket(ticketnumber)
         :payload => payload_json, 
         :headers => { :content_type => 'application/json' }, 
         :user => "chuck.hilyard",
-        :password => "123Be@vis"
+        :password => "asfkjasdf"
     )
 end
     

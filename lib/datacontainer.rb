@@ -8,6 +8,7 @@ require 'JSON'
 
 class DataContainer
 
+    # we make these available to other objects 
     attr_reader :key, :action
 
     def initialize 
