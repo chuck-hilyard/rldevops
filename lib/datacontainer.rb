@@ -8,6 +8,8 @@ require 'JSON'
 
 class DataContainer
 
+    attr_reader :key, :action
+
     def initialize 
         print "DataContainer object initialization\n"
         if ARGV.length < 2
@@ -37,9 +39,11 @@ private
         print "DataContainer::validating KEY\n"
         case ARGV[0].downcase
         when 'jira', 'lb'
+            @key = ARGV[0]
             print "DataContainer::validating ACTION\n"
             case ARGV[1].downcase
                 when 'create', 'check'
+                    @action = ARGV[1]
                     return
                 when 'add', 'remove'
                 else

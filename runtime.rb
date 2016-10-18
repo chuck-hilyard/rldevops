@@ -11,6 +11,8 @@ class RunTimeHandler
         auth_handler = AuthenticationHandler.new 
         data_container = DataContainer.new
         authorization_handler = AuthorizationHandler.new
+
+        print ": ", data_container.key, "\n"
     end
 
 end
