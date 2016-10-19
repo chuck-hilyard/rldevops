@@ -9,13 +9,13 @@ require 'json'
 class DataContainer
 
     # we make these available to other objects 
-    attr_reader :INSTALL_DIR, :key, :action
+    attr_reader :install_dir, :key, :action
 
-    def initialize(install_dir) 
+    def initialize(x) 
         print "DataContainer object initialization\n"
 
         # this const is used for file system access elsewhere
-        @INSTALL_DIR = install_dir
+        @install_dir = x
 
         if ARGV.length < 2
             abort("Insufficient arguments, aborting")
@@ -32,7 +32,8 @@ class DataContainer
 private
     # read the json configuration file.  it's managed by puppet which manages the global configuration and environments
     def load_environment_config
-        configfile = File.read('lib/datacontainer.json')
+        configfilename = "#{install_dir}/lib/datacontainer.json"
+        configfile = File.read(configfilename)
         @confighash = JSON.parse(configfile)
         #puts JSON.pretty_generate(@confighash)
     end
