@@ -9,6 +9,8 @@ class RunTimeHandler
 
     def initialize
         print "loading objects\n"
+        rubyver = `ruby --version`
+        puts rubyver
         install_dir = Kernel::__dir__
         data_container = DataContainer.new(install_dir)
         auth_handler = AuthenticationHandler.new 
