@@ -4,15 +4,19 @@
 # create a config file.  lib/datacontainer.json
 #  
 
-require 'JSON'
+require 'json'
 
 class DataContainer
 
     # we make these available to other objects 
-    attr_reader :key, :action
+    attr_reader :INSTALL_DIR, :key, :action
 
-    def initialize 
+    def initialize(install_dir) 
         print "DataContainer object initialization\n"
+
+        # this const is used for file system access elsewhere
+        @INSTALL_DIR = install_dir
+
         if ARGV.length < 2
             abort("Insufficient arguments, aborting")
         else

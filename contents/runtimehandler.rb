@@ -9,8 +9,9 @@ class RunTimeHandler
 
     def initialize
         print "loading objects\n"
+        install_dir = Kernel::__dir__
+        data_container = DataContainer.new(install_dir)
         auth_handler = AuthenticationHandler.new 
-        data_container = DataContainer.new
         authorization_handler = AuthorizationHandler.new
     end
 
