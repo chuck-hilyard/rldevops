@@ -4,9 +4,9 @@ rundeckPluginVersion: 1.1
 author: chuck.hilyard@reachlocal.com
 date: 8/19/2016
 providers:
-    - name: JIRA Ticket Check
+    - name: QA Mutable Environment Switch
       service: WorkflowStep
       plugin-type: script
       script-interpreter: /usr/bin/env ruby
       script-file: runtimehandler.rb
-      script-args: jira check ticketnumber 
+      script-args: switch environment runway platform

@@ -6,7 +6,7 @@ require_relative 'lib/authenticationhandler.rb'
 require_relative 'lib/datacontainer.rb'
 require_relative 'lib/authorizationhandler.rb'
 require_relative 'ticketing/jira/resthandler.rb'
-require_relative 'qamutatable/qamutablehandler.rb'
+require_relative 'qamutable/qamutablehandler.rb'
 
 
 class RunTimeHandler
