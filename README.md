@@ -1,8 +1,8 @@
-suite of tools built for use as Rundeck "plugins".  may also be called from './cli'
+* suite of tools built for use as Rundeck "plugins".  may also be called from './cli'
 
-Rundeck plugin developer guide -> http://rundeck.org/docs/developer/plugin-development.html
+* Rundeck plugin developer guide -> http://rundeck.org/docs/developer/plugin-development.html
 
-Plugin directory structure
+* Plugin directory structure
 
 [name]-plugin.zip
 \- [name]-plugin/ -- root directory of zip contents, same name as zip file
@@ -10,3 +10,6 @@ Plugin directory structure
       \- contents/
             |- ...      -- script or resource files
                   \- ...
+
+
+* HowTo: Build Plugin

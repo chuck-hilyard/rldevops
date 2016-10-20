@@ -1,3 +1,6 @@
+#
+# options passed from rundeck are of the format RD_OPTION_SOMENAME  
+#
 
 require_relative 'lib/authenticationhandler.rb'
 require_relative 'lib/datacontainer.rb'

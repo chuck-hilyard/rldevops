@@ -25,7 +25,7 @@ class DataContainer
         validate_arguments
     end
 
-private
+    private
     # read the json configuration file.  it's managed by puppet which manages the global configuration and environments
     def load_environment_config
         configfilename = "#{install_dir}/lib/datacontainer.json"
