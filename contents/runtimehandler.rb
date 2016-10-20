@@ -21,7 +21,7 @@ class RunTimeHandler
         case args[0]
         when 'jira'
             extend JiraRestHandler
-            ticketnumber = args[2]
+            ticketnumber = ENV["RD_OPTION_TICKETNUMBER"]
             parse_ticket(ticketnumber)
             build_uri(ticketnumber)
             call_rest_ticketstatus(ticketnumber)
