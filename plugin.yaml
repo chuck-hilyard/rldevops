@@ -9,4 +9,4 @@ providers:
       plugin-type: script
       script-interpreter: /usr/bin/env ruby
       script-file: runtimehandler.rb
-      script-args: jira check 
+      script-args: jira check ticketnumber 
