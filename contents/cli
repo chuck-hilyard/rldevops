@@ -28,6 +28,7 @@ cliusage()
     echo -e "\t\t         \t [ check ]        \t [ ticketnumber ]" 
     echo -e "\t\t[ lb   ] \t [ add|remove ]   \t [ dev|qa|stg|prod ] [ netscaler|elb ] [ basiclb|switchinglb ] [ usa|can|eur|gbr|jpn|aus ]" 
     echo -e "\t\t[ node ] \t [ add|remove ]   \t [ dev|qa|stg|prod ] [ ec2|xen|rlpc ] [ web|app|admin|db ] [ usa|can|eur|gbr|jpn|aus ]" 
+    echo -e "\t\t[ switch ]   \t [ qanx1|qacur ]       \t [ int1|int2 ] [ ams|eur|gbr|jpn|aus ]"
 }
 
 

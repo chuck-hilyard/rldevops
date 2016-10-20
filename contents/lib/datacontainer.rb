@@ -17,16 +17,12 @@ class DataContainer
         # this const is used for file system access elsewhere
         @install_dir = x
 
-        if ARGV.length < 2
-            abort("Insufficient arguments, aborting")
-        else
-            # available environments, platforms, etc. will be managed by puppet
-            load_environment_config
+        # available environments, platforms, etc. will be managed by puppet
+        load_environment_config
 
-            # check the args passed from the cli/rundeck and performa a quick sanity
-            # check against those we loaded from the config file.
-            validate_arguments
-        end
+        # check the args passed from the cli/rundeck and performa a quick sanity
+        # check against those we loaded from the config file.
+        validate_arguments
     end
 
 private
@@ -44,14 +40,13 @@ private
     def validate_arguments
         print "DataContainer::validating KEY\n"
         case ARGV[0].downcase
-        when 'jira', 'lb'
+        when 'jira', 'lb', 'switch'
             @key = ARGV[0]
             print "DataContainer::validating ACTION\n"
             case ARGV[1].downcase
-                when 'create', 'check'
+                when 'create', 'check', 'qanx1', 'qacur'
                     @action = ARGV[1]
                     return
-                when 'add', 'remove'
                 else
                     abort("invalid ACTION, aborting")
                 end
