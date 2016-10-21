@@ -31,7 +31,7 @@ class RunTimeHandler
             call_rest_ticketstatus(ticketnumber)
         when 'switch'
             extend QAMutableHandler
-            somefunc
+            check_args
         else
             abort("not sure what to exec_task")
         end
