@@ -29,7 +29,7 @@ class RunTimeHandler
             parse_ticket(ticketnumber)
             build_uri(ticketnumber)
             call_rest_ticketstatus(ticketnumber)
-        when 'switch'
+        when 'mutable'
             extend QAMutableHandler
             check_args
         else

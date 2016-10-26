@@ -40,7 +40,7 @@ class DataContainer
     def validate_arguments
         print "DataContainer::validating KEY\n"
         case ARGV[0].downcase
-        when 'jira', 'lb', 'switch'
+        when 'jira', 'lb', 'mutable'
             @key = ARGV[0]
             print "DataContainer::validating ACTION\n"
             case ARGV[1].downcase
