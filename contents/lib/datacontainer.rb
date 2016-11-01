@@ -34,7 +34,7 @@ class DataContainer
         #puts JSON.pretty_generate(@confighash)
     end
 
-    # this should be moved into its own class
+    # this should be moved into its own class, good enough, for now.
     #
     # simplistic validation of arguments passed against those loaded from the environment
     def validate_arguments
