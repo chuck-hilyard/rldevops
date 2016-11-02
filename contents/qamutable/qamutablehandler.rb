@@ -1,4 +1,6 @@
 
+# the command being run
+# [ mutable ]        [ qanx1|qacur ]         [ int1|int2 ] to [ ams|eur|gbr|jpn|aus ]
 
 module QAMutableHandler
     
@@ -17,4 +19,9 @@ module QAMutableHandler
     def push_ldap_entries
         print "pushing ldap entires\n"
     end
+
+    def update_spreadsheet
+        print "updating qa spreadsheet\n"
+    end
+
 end
