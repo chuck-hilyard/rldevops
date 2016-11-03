@@ -9,7 +9,7 @@ require 'json'
 class DataContainer
 
     # we make these available to other objects 
-    attr_reader :install_dir, :key, :action
+    attr_reader :install_dir, :key, :action, :confighash
 
     def initialize(x) 
         print "DataContainer object initialization\n"
