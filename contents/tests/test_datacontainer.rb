@@ -4,6 +4,8 @@ require_relative '../lib/datacontainer.rb'
 
 
 dc = DataContainer.new('/Users/chuck.hilyard/projects/rldevops-plugin/contents')
-#puts dc.configjson['datacontainer']['platform_datacenter']["usa"]
-puts dc.configjson['datacontainer']['platform_datacenter'].select { |h1| h1['key'] == 'usa'; } [1]
 
+# this works, but not ideal.  don't really need a block over which to iterate
+#dc.configjson['datacontainer']['platform_datacenter'].select { |h1| puts h1['usa'] } 
+
+puts dc.configjson['platform_datacenter']["usa"]
