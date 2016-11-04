@@ -9,7 +9,7 @@ require 'json'
 class DataContainer
 
     # we make these available to other objects 
-    attr_reader :install_dir, :key, :action, :confighash
+    attr_reader :install_dir, :key, :action, :configjson
 
     def initialize(x) 
         print "DataContainer object initialization\n"
@@ -30,7 +30,7 @@ class DataContainer
     def load_environment_config
         configfilename = "#{install_dir}/lib/datacontainer.json"
         configfile = File.read(configfilename)
-        @confighash = JSON.parse(configfile)
+        @configjson = JSON.parse(configfile)
         #puts JSON.pretty_generate(@confighash)
     end
 

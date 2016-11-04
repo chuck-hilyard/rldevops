@@ -20,4 +20,4 @@ module QAMutableHandler
 end
 
 
-ldaphandler = LdapHandler.new()
+#ldaphandler = LdapHandler.new()
