@@ -12,8 +12,6 @@ class DataContainer
     attr_reader :install_dir, :key, :action, :configjson
 
     def initialize(x) 
-        print "DataContainer object initialization\n"
-
         # this const is used for file system access elsewhere
         @install_dir = x
 
@@ -23,6 +21,13 @@ class DataContainer
         # check the args passed from the cli/rundeck and performa a quick sanity
         # check against those we loaded from the config file.
         validate_arguments
+    end
+
+    # client passes key, we check for existence of that key.  return true or false if the
+    # key exists.  if the key has a value (i.e. a hash), return the value
+    def key_check(key)
+        print "in DataContainer::key_check\n"        
+        configjson.each { |x| print x  }
     end
 
     private
