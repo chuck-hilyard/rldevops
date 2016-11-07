@@ -23,15 +23,20 @@ class DataContainer
         validate_arguments
     end
 
-    # client passes key, we check for existence of that key.  return true or false if the
-    # key exists.  if the key has a value (i.e. a hash), return the value
+    # this is our workhorse.  allow the client to pass a key (usually from the cli/gui args) and verify the key as existing
+    # and returning TRUE if it exists, OR returning a value (key, value) associated with it
+    #
+    # there could be either hashes or arrays, let's check both
     def key_check(key)
         print "in DataContainer::key_check\n"        
-        configjson.each { |x| print x  }
+        masterkeys = @configjson.keys
+            masterkeys.each { |masterkey|
+                puts @configjson.values_at(masterkey[key])
+            }
     end
 
     private
-    # read the json configuration file.  it's managed by puppet which manages the global configuration and environments
+    # read the json configuration file.  it should be managed by puppet which manages the global configuration and environments
     def load_environment_config
         configfilename = "#{install_dir}/lib/datacontainer.json"
         configfile = File.read(configfilename)
@@ -39,9 +44,9 @@ class DataContainer
         #puts JSON.pretty_generate(@confighash)
     end
 
-    # this should be moved into its own class, good enough, for now.
-    #
     # simplistic validation of arguments passed against those loaded from the environment
+    # this should be moved into its own class, good enough, for now.
+    # 
     def validate_arguments
         print "DataContainer::validating KEY\n"
         case ARGV[0].downcase
