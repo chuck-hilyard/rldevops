@@ -31,7 +31,7 @@ class DataContainer
         print "in DataContainer::key_check\n"        
         masterkeys = @configjson.keys
             masterkeys.each { |masterkey|
-                puts @configjson.values_at(masterkey[key])
+                puts @configjson[masterkey]
             }
     end
 
