@@ -31,7 +31,8 @@ class DataContainer
         print "in DataContainer::key_check\n"        
         masterkeys = @configjson.keys
             masterkeys.each { |masterkey|
-                puts @configjson[masterkey]
+                puts "hash" if @configjson[masterkey].is_a?(Hash)
+                puts "array" if @configjson[masterkey].is_a?(Array)
             }
     end
 
