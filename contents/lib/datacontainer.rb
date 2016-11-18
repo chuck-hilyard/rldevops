@@ -31,8 +31,26 @@ class DataContainer
         print "in DataContainer::key_check\n"        
         masterkeys = @configjson.keys
             masterkeys.each { |masterkey|
-                puts "hash" if @configjson[masterkey].is_a?(Hash)
-                puts "array" if @configjson[masterkey].is_a?(Array)
+
+                # search any hashes we have
+                puts "searching hash" if @configjson[masterkey].is_a?(Hash)
+                  @configjson[masterkey].each do |k,v| 
+                    if @configjson[masterkey].key?(key)
+                        print "found #{key} in #{@configjson[masterkey]}\n"
+                    else 
+                        print "#{key} not found #{@configjson[masterkey]}\n"
+                    end
+                  end
+
+                # search any arrays we have
+                puts "searching array" if @configjson[masterkey].is_a?(Array)
+                  @configjson[masterkey].each do |k,v| 
+                    if @configjson[masterkey].include?(key)
+                        print "found #{key} in #{@configjson[masterkey]}\n"
+                    else 
+                        print "#{key} not found #{@configjson[masterkey]}\n"
+                    end
+                  end
             }
     end
 
