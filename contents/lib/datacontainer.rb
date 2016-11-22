@@ -34,21 +34,26 @@ class DataContainer
 
                 # search any hashes we have
                 if @configjson[masterkey].is_a?(Hash)
+                  then
                   @configjson[masterkey].each do |k,v| 
                     if @configjson[masterkey].key?(key)
                       print "found #{key} in #{@configjson[masterkey]}\n"
+                      return key, @configjson[masterkey][key] 
                     else 
                       print "#{key} not found #{@configjson[masterkey]}\n"
                     end
+                  end
 
                 # search any arrays we have
                 elsif @configjson[masterkey].is_a?(Array) 
                   @configjson[masterkey].each do |k,v| 
                     if @configjson[masterkey].include?(key)
                       print "found #{key} in #{@configjson[masterkey]}\n"
+                      return TRUE
                     else 
                       print "#{key} not found #{@configjson[masterkey]}\n"
                     end
+                  end
 
                 else 
                   print "what?\n"
