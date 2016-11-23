@@ -2,7 +2,7 @@
 # the command being run
 # [ mutable ]        [ qanx1|qacur ]         [ int1|int2 ] to [ ams|eur|gbr|jpn|aus ]
 
-module QAMutableHandler
+class QAMutableHandler
     
     def initialize
         print "loading QAMutableHandler\n"
