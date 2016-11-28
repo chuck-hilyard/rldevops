@@ -1,3 +1,4 @@
+require 'net-ldap'
 
 class LdapHandler
 
