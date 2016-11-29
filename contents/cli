@@ -29,7 +29,7 @@ cliusage()
     echo -e "\t\t[ lb   ] \t [ add|remove ]   \t [ dev|qa|stg|prod ] [ netscaler|elb ] [ basiclb|switchinglb ] [ usa|can|eur|gbr|jpn|aus ]" 
     echo -e "\t\t         \t [ passwd ]       \t   changes your password on all netscaler lb's { wh,lax,iad,syd,nrt,ams } " 
     echo -e "\t\t[ node ] \t [ add|remove ]   \t [ dev|qa|stg|prod ] [ ec2|xen|rlpc ] [ web|app|admin|db ] [ usa|can|eur|gbr|jpn|aus ]" 
-    echo -e "\t\t[ mutable ]   \t [ qa_nx1|qa_cur ]       \t [ int1|int2 ] to [ can|eur|gbr|jpn|aus ]"
+    echo -e "\t\t[ mutable ]   \t [ qa_nx1|qa_cur ] \t [ int1|int2 ] to [ can|eur|gbr|jpn|aus ]"
 }
 
 
@@ -44,13 +44,13 @@ if [ "$PWD" != "/Users/chuck.hilyard/projects/rlrundeck-plugin/contents" ]
        :
 fi
 
-## RD_OPTION vars are built at execution time and maintained in the rundeck session
-export RD_OPTION_TICKETNUMBER="cmr-1255"
+## RD_OPTION vars are built at rundeck execution time and maintained in the rundeck session
+#export RD_OPTION_TICKETNUMBER="cmr-1255"
 #export RD_OPTION_TICKETNUMBER="disp-9999"
-export RD_JOB_USERNAME="chuck.hilyard"
-export RD_JOB_ID="e57499ca-a118-4280-9095-802046417263"
-export RD_JOB_URL="http://rundeck-usa-app01.dev.wh.reachlocal.com:4440/project/Pre-Production/execution/follow/14"
-export JOB_SOURCE="devopscli"
+#export RD_JOB_USERNAME="chuck.hilyard"
+#export RD_JOB_ID="e57499ca-a118-4280-9095-802046417263"
+#export RD_JOB_URL="http://rundeck-usa-app01.dev.wh.reachlocal.com:4440/project/Pre-Production/execution/follow/14"
+#export JOB_SOURCE="devopscli"
 
 if [ "$*" ]
     then 
