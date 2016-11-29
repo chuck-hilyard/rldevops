@@ -77,17 +77,9 @@ class DataContainer
         print "DataContainer::validating KEY\n"
         case ARGV[0].downcase
         when 'jira', 'lb', 'mutable'
-            @key = ARGV[0]
-            print "DataContainer::validating ACTION\n"
-            case ARGV[1].downcase
-                when 'create', 'check', 'qanx1', 'qacur'
-                    @action = ARGV[1]
-                    return
-                else
-                    abort("invalid ACTION, aborting")
-                end
+          return 
         else
-            abort("invalid KEY, aborting")
+          abort("invalid KEY, aborting")
         end
 
     end
