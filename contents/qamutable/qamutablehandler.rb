@@ -42,13 +42,28 @@ class QAMutableHandler
     private
     def check_ldap_master_entry
         print "in QAMutableHandler::check_ldap\n"
-        ldap = Net::LDAP.new( :host => "auth.wh.reachlocal.com", :port => 389, :auth => { 
+        ldap = Net::LDAP.new(:host => "auth.wh.reachlocal.com", :port => 389, :auth => { 
             :method => :simple, 
             :username => "cn=PuppetMaster,dc=reachlocal,dc=com", 
-            :password => "" 
-            } )
+            :password => "Pr0j3ct_2501" 
+            })
         if ldap.bind
             print "ldap auth success\n"
+            print "searching for base entry\n"
+              filter1 = Net::LDAP::Filter.eq("cn", "int1")
+              filter2 = Net::LDAP::Filter.eq("environment", "qa_nx1")
+              filter = Net::LDAP::Filter.join(filter1, filter2)
+              treebase = "ou=hosts,dc=reachlocal,dc=com" 
+              ldap.search(:base => treebase, :filter => filter) { |entry|
+                  puts "dn: #{entry.dn}"
+                  entry.each { |attribute, values|
+                      puts "  #{attribute}:"
+                      values.each { |value|
+                          puts "  --->#{value}"
+                      }
+                  }
+              }
+
         else
             print "ldap auth FAILED\n"
         end 
