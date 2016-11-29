@@ -1,6 +1,6 @@
 
 # the arguments being passed 
-# [ mutable ]        [ qanx1|qacur ]         [ int1|int2 ] to [ ams|eur|gbr|jpn|aus ]
+# [ mutable ]        [ qa_nx1|qa_cur ]         [ int1|int2 ] to [ ams|eur|gbr|jpn|aus ]
 
 # check the request and make certain there's a master entry for the requested environment switch.  it
 # should look something like this, this will be our "master"

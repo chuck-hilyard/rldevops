@@ -29,15 +29,15 @@ cliusage()
     echo -e "\t\t[ lb   ] \t [ add|remove ]   \t [ dev|qa|stg|prod ] [ netscaler|elb ] [ basiclb|switchinglb ] [ usa|can|eur|gbr|jpn|aus ]" 
     echo -e "\t\t         \t [ passwd ]       \t   changes your password on all netscaler lb's { wh,lax,iad,syd,nrt,ams } " 
     echo -e "\t\t[ node ] \t [ add|remove ]   \t [ dev|qa|stg|prod ] [ ec2|xen|rlpc ] [ web|app|admin|db ] [ usa|can|eur|gbr|jpn|aus ]" 
-    echo -e "\t\t[ mutable ]   \t [ qanx1|qacur ]       \t [ int1|int2 ] to [ can|eur|gbr|jpn|aus ]"
+    echo -e "\t\t[ mutable ]   \t [ qa_nx1|qa_cur ]       \t [ int1|int2 ] to [ can|eur|gbr|jpn|aus ]"
 }
 
 
 # this script should only be run from the top level directory as this is 
 # where rundeck will interface w/ the plugin
-if [ "$PWD" != "/Users/chuck.hilyard/projects/rldevops-plugin/contents" ]
+if [ "$PWD" != "/Users/chuck.hilyard/projects/rlrundeck-plugin/contents" ]
     then
-        echo "run this from /Users/chuck.hilyard/projects/rldevops-plugin/contents, only"
+        echo "run this from /Users/chuck.hilyard/projects/rlrundeck-plugin/contents, only"
         exit
 
     else
