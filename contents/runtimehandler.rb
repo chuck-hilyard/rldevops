@@ -29,7 +29,7 @@ class RunTimeHandler
             build_uri(ticketnumber)
             call_rest_ticketstatus(ticketnumber)
         when 'mutable'
-            qamutable = QAMutableHandler.new
+            qamutable = QAMutableHandler.new(data_container)
         else
             abort("not sure what to exec_task")
         end

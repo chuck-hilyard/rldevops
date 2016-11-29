@@ -29,17 +29,29 @@
 # puppetVar: branch=qa_cur
 # puppetVar: platform=aus
 
+require 'net-ldap'
 require_relative '../lib/ldaphandler.rb'
 
 class QAMutableHandler
     
-    def initialize
+    def initialize(data_container)
         print "loading QAMutableHandler\n"
+        check_ldap_master_entry
     end
 
     private
     def check_ldap_master_entry
         print "in QAMutableHandler::check_ldap\n"
+        ldap = Net::LDAP.new( :host => "auth.wh.reachlocal.com", :port => 389, :auth => { 
+            :method => :simple, 
+            :username => "cn=PuppetMaster,dc=reachlocal,dc=com", 
+            :password => "" 
+            } )
+        if ldap.bind
+            print "ldap auth success\n"
+        else
+            print "ldap auth FAILED\n"
+        end 
     end
 
     def update_ldap
