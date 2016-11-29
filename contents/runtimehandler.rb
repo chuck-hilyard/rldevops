@@ -29,7 +29,10 @@ class RunTimeHandler
             build_uri(ticketnumber)
             call_rest_ticketstatus(ticketnumber)
         when 'mutable'
-            qamutable = QAMutableHandler.new(data_container)
+            environment = ENV["RD_OPTION_ENVIRONMENT"]
+            platform = ENV["RD_OPTION_PLATFORM"]
+            runway = ENV["RD_OPTION_RUNWAY"]
+            qamutable = QAMutableHandler.new(data_container, environment, platform, runway)
         else
             abort("not sure what to exec_task")
         end

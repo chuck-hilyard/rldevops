@@ -10,11 +10,11 @@
 #
 #
 
-module JiraRestHandler
-
 require 'json'
 require 'base64'
 require 'rest-client'
+
+module JiraRestHandler
 
 # *******************************************************************************
 # build a basic uri object.  update the path local to the function for
