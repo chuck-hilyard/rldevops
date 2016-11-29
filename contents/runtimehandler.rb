@@ -11,9 +11,11 @@ require_relative 'qamutable/qamutablehandler.rb'
 
 class RunTimeHandler
 
+    attr_reader :data_container
+
     def initialize
         install_dir = Kernel::__dir__
-        data_container = DataContainer.new(install_dir)
+        @data_container = DataContainer.new(install_dir)
         auth_handler = AuthenticationHandler.new 
         authorization_handler = AuthorizationHandler.new
     end
@@ -27,7 +29,7 @@ class RunTimeHandler
             build_uri(ticketnumber)
             call_rest_ticketstatus(ticketnumber)
         when 'mutable'
-            qamutable = QAMutableHandler
+            qamutable = QAMutableHandler.new
         else
             abort("not sure what to exec_task")
         end

@@ -1,9 +1,9 @@
 {
 
-  "platform_datacenter" :  { "usa" : "lax", "can" : "iad", "eur" : "ams", "gbr" : "ams", "jpn" : "nrt", "aus" : "syd" },
+  "platform" :  { "usa" : "lax", "can" : "iad", "eur" : "ams", "gbr" : "ams", "jpn" : "nrt", "aus" : "syd" },
 
-  "environment" : [ "dev" , "qa", "stg", "prod" ],
+  "environment" : [ "dev", "qa", "qa_nx1", "qa_nx2", "qa_cur", "stage", "capture_qa", "newprod", "prod" ],
 
-  "real_branches" : [ "dev", "qa", "qa_nx1", "qa_nx2", "qa_cur", "stage", "capture_qa", "newprod", "prod" ]
+  "qa_runways" : [ "int1", "int2" ]
 }
 

@@ -29,7 +29,7 @@ cliusage()
     echo -e "\t\t[ lb   ] \t [ add|remove ]   \t [ dev|qa|stg|prod ] [ netscaler|elb ] [ basiclb|switchinglb ] [ usa|can|eur|gbr|jpn|aus ]" 
     echo -e "\t\t         \t [ passwd ]       \t   changes your password on all netscaler lb's { wh,lax,iad,syd,nrt,ams } " 
     echo -e "\t\t[ node ] \t [ add|remove ]   \t [ dev|qa|stg|prod ] [ ec2|xen|rlpc ] [ web|app|admin|db ] [ usa|can|eur|gbr|jpn|aus ]" 
-    echo -e "\t\t[ mutable ]   \t [ qanx1|qacur ]       \t [ int1|int2 ] to [ usa|can|eur|gbr|jpn|aus ]"
+    echo -e "\t\t[ mutable ]   \t [ qanx1|qacur ]       \t [ int1|int2 ] to [ can|eur|gbr|jpn|aus ]"
 }
 
 
