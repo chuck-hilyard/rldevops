@@ -1,35 +1,7 @@
 
-# the arguments being passed 
-# [ mutable ]        [ qa_nx1|qa_cur ]         [ int1|int2 ] to [ ams|eur|gbr|jpn|aus ]
-
-# check the request and make certain there's a master entry for the requested environment switch.  it
-# should look something like this, this will be our "master"
-# 
-# dn: cn=int1,ou=qa_cur,ou=Hosts,dc=reachlocal,dc=com
-# environment: qa_cur
-# cn: int1
-# objectClass: device
-# objectClass: puppetClient
-# objectClass: top
-# puppetVar: platform=aus
-
-# a node entry will look like
-# dn: cn=facebookshim-int1-app02.qa.wh.reachlocal.com.1478291038.1a07027c.rlpc,ou=Hosts,dc=reachlocal,dc=com
-# objectClass: device
-# objectClass: puppetClient
-# objectClass: top
-# cn: facebookshim-int1-app02.qa.wh.reachlocal.com.1478291038.1a07027c.rlpc
-# puppetClass: base
-# puppetClass: apps_facebook_shim
-# parentNode: default
-# environment: qa_cur
-# puppetVar: service=facebookshim
-# puppetVar: sub=app
-# puppetVar: runway=int1
-# puppetVar: branch=qa_cur
-# puppetVar: platform=aus
 
 require 'net-ldap'
+# this isn't in use, i'll break out this functionality later
 require_relative '../lib/ldaphandler.rb'
 
 class QAMutableHandler
@@ -39,37 +11,29 @@ class QAMutableHandler
         @environment = environment
         @platform = platform
         @runway = runway
-        check_ldap_master_entry
+        ldap_master_entry_exists?
     end
 
     private
-    def check_ldap_master_entry
-        print "in QAMutableHandler::check_ldap\n"
+    def ldap_master_entry_exists?
+        print "in QAMutableHandler::ldap_master_entry_exists?\n"
         ldap = Net::LDAP.new(:host => "auth.wh.reachlocal.com", :port => 389, :auth => { 
             :method => :simple, 
             :username => "cn=PuppetMaster,dc=reachlocal,dc=com", 
-            :password => "Pr0j3ct_2501" 
+            :password => "" 
             })
         if ldap.bind
             print "ldap auth success\n"
-            print "searching for master entry\n"
+            print "searching for master entry..."
               filter1 = Net::LDAP::Filter.eq("cn", @runway)
               filter2 = Net::LDAP::Filter.eq("environment", @environment)
               filter = Net::LDAP::Filter.join(filter1, filter2)
               treebase = "ou=hosts,dc=reachlocal,dc=com" 
-              ldap.search(:base => treebase, :filter => filter) { |entry|
-                  puts "dn: #{entry.dn}"
-                  entry.each { |attribute, values|
-                      puts "  #{attribute}:"
-                      values.each { |value|
-                          puts "  --->#{value}"
-                      }
-                  }
-              }
-
+              data = ldap.search(:base => treebase, :filter => filter)
         else
-            print "ldap auth FAILED\n"
+            abort("ldap auth FAILED")
         end 
+        print "", ldap.get_operation_result.message, "\n"
     end
 
     def update_ldap
