@@ -12,9 +12,10 @@ class QAMutableHandler
         @runway = runway
         @host = "auth.wh.reachlocal.com"
         @username = "cn=PuppetMaster,dc=reachlocal,dc=com"
-        @password = "Pr0j3ct_2501"
+        @password = "********************************************"
         ldap_master_entry_exists?
-        collect_mutable_nodes
+        nodelist = collect_mutable_nodes
+        update_mutable_nodes(nodelist)
     end
 
     private
@@ -26,7 +27,6 @@ class QAMutableHandler
             :password => @password 
             })
         if ldap.bind
-            print "ldap auth success\n"
             print "searching for master entry..."
               filter1 = Net::LDAP::Filter.eq("cn", @runway)
               filter2 = Net::LDAP::Filter.eq("environment", @environment)
@@ -47,23 +47,25 @@ class QAMutableHandler
             :password => @password 
             })
         if ldap.bind
-          print "ldap auth success\n"
           print "searching for nodes..."
           filter1 = Net::LDAP::Filter.eq("puppetVar", "runway=#{@runway}")
           filter2 = Net::LDAP::Filter.eq("environment", @environment)
           filter = Net::LDAP::Filter.join(filter1, filter2)
           treebase = "ou=hosts,dc=reachlocal,dc=com" 
-          ldap.search(:base => treebase, :filter => filter) { |results|   
-            puts "DN: #{results.dn}" 
-            } 
+          nodes = ldap.search(:base => treebase, :filter => filter)
+          printf("found %i nodes to update\n", nodes.count)
+          return nodes
         else
           abort("ldap auth FAILED")
         end
-        print "", ldap.get_operation_result.message, "\n"
+        print "", ldap.get_operation_result, "\n"
     end
 
-    def update_ldap
-        print "in QAMutableHandler::update_ldap\n"
+    def update_mutable_nodes(nodelist)
+        print "in QAMutableHandler::update_mutable_nodes\n"
+        nodelist.each { |x|
+          puts x.cn
+        }
     end
 
     def update_spreadsheet

@@ -51,6 +51,9 @@ fi
 #export RD_JOB_ID="e57499ca-a118-4280-9095-802046417263"
 #export RD_JOB_URL="http://rundeck-usa-app01.dev.wh.reachlocal.com:4440/project/Pre-Production/execution/follow/14"
 #export JOB_SOURCE="devopscli"
+export RD_OPTION_ENVIRONMENT="qa_nx1"
+export RD_OPTION_RUNWAY="int2"
+export RD_OPTION_PLATFORM="can"
 
 if [ "$*" ]
     then 
