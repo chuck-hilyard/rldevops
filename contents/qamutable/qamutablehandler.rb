@@ -2,7 +2,6 @@
 require 'net-ldap'
 require_relative '../lib/ldaphandler.rb'
 
-
 class QAMutableHandler
 
   def initialize(data_container, runway, environment, change_to_platform)
