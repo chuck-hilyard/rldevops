@@ -10,7 +10,7 @@ class AuthorizationHandler
     attr_reader :authorized
 
     def initialize
-        print "AuthorizationHandler object initialization\n"
+        print "AuthorizationHandler::initialization\n"
         ## check DataContainer::environment if 'prod'
         # then check DataContainer::jira_ticket_number
         @authorized = 0
