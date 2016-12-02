@@ -1,8 +1,7 @@
 
-
 require 'net-ldap'
-# this isn't in use, i'll move this functionality to it's own class, later
 require_relative '../lib/ldaphandler.rb'
+
 
 class QAMutableHandler
     def initialize(data_container, environment, platform, runway)
@@ -12,7 +11,7 @@ class QAMutableHandler
         @runway = runway
         @host = "auth.wh.reachlocal.com"
         @username = "cn=PuppetMaster,dc=reachlocal,dc=com"
-        @password = "********************************************"
+        @password = "Pr0j3ct_2501"
         ldap_master_entry_exists?
         nodelist = collect_mutable_nodes
         update_mutable_nodes(nodelist)

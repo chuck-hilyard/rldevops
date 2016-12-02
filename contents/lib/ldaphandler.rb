@@ -1,15 +1,15 @@
 # this is really tailored to the qamutable code.  making this more generic
-# for use by other apps isn't in the timetable.
+# for use by other apps is not yet in the timetable.
 
 require 'net-ldap'
 
 class LdapHandler
 
     def initialize(datacenter)
-      print "instantiating LdapHandler\n"
+      print "LdapHandler::initialize\n"
       # credentials should be moved to the datacontainer
       username = "cn=PuppetMaster,dc=reachlocal,dc=com"
-      password = "**************************************************"
+      password = "Pr0j3ct_2501"
       host = "auth.#{datacenter}.reachlocal.com"
       print "opening connection to #{host}\n"
       @ldap = Net::LDAP.new(:host => host, :port => 389, :auth => { :method => :simple,
@@ -17,8 +17,8 @@ class LdapHandler
                                                                     :password => password })
     end
 
-    def search_qa_nodes(environment, runway)
-      print "searching ldap\n"
+    def search_qa_nodes(runway, environment)
+      print "LdapHandler::search_qa_nodes\n"
       if @ldap.bind
         print "ldap auth success\n"
         filter1 = Net::LDAP::Filter.eq("puppetVar", "runway=#{runway}")
@@ -34,13 +34,13 @@ class LdapHandler
       print "", @ldap.get_operation_result.message, "\n"
     end
 
-    def modify_qa_nodes(nodes)
-        print "modifying qa nodes\n"
+    def modify_qa_nodes(nodes, change_to_platform)
+        print "LdapHandler::modify_qa_nodes\n"
         nodes.each { |x|
-          printf("modifying %s", x.cn)
-          operations = [[:replace, :puppetVar, ["runway=int1"]]]
-          @ldap.modify(:dn => x.dn, :operations => operations)
-          print "", @ldap.get_operation_result, "\n"
+          printf("modifying %s\n", x.cn)
+          #operations = [[:replace, :puppetVar, ["platform=#{change_to_platform}"]]]
+          #@ldap.modify(:dn => x.dn, :operations => operations)
+          #print "", @ldap.get_operation_result.message, "\n"
         }
     end
 
