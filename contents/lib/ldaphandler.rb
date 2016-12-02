@@ -9,7 +9,7 @@ class LdapHandler
       print "LdapHandler::initialize\n"
       # credentials should be moved to the datacontainer
       username = "cn=PuppetMaster,dc=reachlocal,dc=com"
-      password = "Pr0j3ct_2501"
+      password = ""
       host = "auth.#{datacenter}.reachlocal.com"
       print "opening connection to #{host}\n"
       @ldap = Net::LDAP.new(:host => host, :port => 389, :auth => { :method => :simple,

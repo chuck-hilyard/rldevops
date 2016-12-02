@@ -11,7 +11,7 @@ class QAMutableHandler
         @runway = runway
         @host = "auth.wh.reachlocal.com"
         @username = "cn=PuppetMaster,dc=reachlocal,dc=com"
-        @password = "Pr0j3ct_2501"
+        @password = ""
         ldap_master_entry_exists?
         nodelist = collect_mutable_nodes
         update_mutable_nodes(nodelist)
