@@ -12,7 +12,7 @@ class QAMutableHandler
     @environment = environment
     @host = "auth.wh.reachlocal.com"
     username = "cn=PuppetMaster,dc=reachlocal,dc=com"
-    password = "Pr0j3ct_2501"
+    password = ""
     ldaphandler = LdapHandler.new(datacenter, username, password)
     master_entry = ldaphandler.ldap_master_entry_exists?(runway, environment)
     nodelist = ldaphandler.search_qa_nodes(runway, environment)
