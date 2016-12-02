@@ -6,6 +6,7 @@ class QAMutableHandler
 
   def initialize(data_container, runway, environment, change_to_platform)
     print "QAMutableHandler::initialize\n"
+    # hard coded, mutable environments in prod probably won't happen
     datacenter = "wh"
     @runway = runway
     @environment = environment

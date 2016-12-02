@@ -15,7 +15,7 @@
 class AuthenticationHandler
 
     def initialize
-        print "AuthenticationHandler object initialization\n"
+        print "AuthenticationHandler::initialization\n"
         @username 
         @password
     end
