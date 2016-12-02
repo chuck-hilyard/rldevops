@@ -32,7 +32,7 @@ class RunTimeHandler
             environment = ENV["RD_OPTION_ENVIRONMENT"]
             platform = ENV["RD_OPTION_PLATFORM"]
             runway = ENV["RD_OPTION_RUNWAY"]
-            qamutable = QAMutableHandler.new(data_container, environment, platform, runway)
+            qamutable = QAMutableHandler.new(data_container, runway, environment, platform)
         else
             abort("not sure what to exec_task")
         end
