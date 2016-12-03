@@ -57,7 +57,7 @@ class LdapHandler
     def modify_qa_nodes(nodes, change_to_platform)
         print "LdapHandler::modify_qa_nodes\n"
         nodes.each { |x|
-          printf("modifying %s\n", x.cn)
+          printf("updating %s\n", x.cn)
           #operations = [[:replace, :puppetVar, ["platform=#{change_to_platform}"]]]
           #@ldap.modify(:dn => x.dn, :operations => operations)
           #print "", @ldap.get_operation_result.message, "\n"
@@ -67,7 +67,7 @@ class LdapHandler
   def modify_master_entry(master_entry, change_to_platform)
     print "LdapHandler::modify_master_entry\n"
     master_entry.each { |x|
-      printf("modifying %s\n", x.dn) 
+      printf("updating %s\n", x.dn) 
     }
   end
 end
