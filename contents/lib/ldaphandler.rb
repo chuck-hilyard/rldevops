@@ -1,4 +1,4 @@
-# this is really tailored to the qamutable code.  making this more generic over time
+# this is really tailored to the qamutable code.  making this more generic over time...
 
 require 'net-ldap'
 
@@ -53,7 +53,7 @@ class LdapHandler
     print "", @ldap.get_operation_result.message, "\n"
   end
 
-  def modify_qa_nodes(nodes, change_to_platform)
+  def modify_qa_nodes(nodes="devnull", change_to_platform)
       print "LdapHandler::modify_qa_nodes\n"
       nodes.each { |x|
         printf("updating %s\n", x.cn)
@@ -61,11 +61,11 @@ class LdapHandler
           if y.match('platform=*')
             printf("  removing %s\n", y)
             operations = [[:delete, :puppetvar, y]]
-            @ldap.modify(:dn => x.dn, :operations => operations)
+            #@ldap.modify(:dn => x.dn, :operations => operations)
           end
         }
         printf("  adding platform=%s...", change_to_platform)
-        @ldap.add_attribute(x.dn, :puppetVar, "platform=#{change_to_platform}")
+        #@ldap.add_attribute(x.dn, :puppetVar, "platform=#{change_to_platform}")
         print "", @ldap.get_operation_result.message, "\n"
       }
   end
