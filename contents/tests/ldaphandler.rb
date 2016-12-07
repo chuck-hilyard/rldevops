@@ -9,8 +9,4 @@ ldap = LdapHandler.new(ARGV[0], ARGV[1], ARGV[2])
 
 nodes = ldap.search_qa_nodes("int3", "qa_nx1")
 
-nodes.each { |a|
-  puts a.puppetVar
-}
-
-ldap.modify_qa_nodes(nodes, "eur")
+ldap.modify_qa_nodes(nodes, "bos")
