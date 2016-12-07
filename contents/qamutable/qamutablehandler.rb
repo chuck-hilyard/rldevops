@@ -1,5 +1,4 @@
 
-require 'net-ldap'
 require_relative '../lib/ldaphandler.rb'
 
 class QAMutableHandler

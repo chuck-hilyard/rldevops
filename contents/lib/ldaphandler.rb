@@ -60,7 +60,8 @@ class LdapHandler
         printf("updating %s\n", x.cn)
         #operations = [[:replace, :puppetVar, ["platform=#{change_to_platform}"]]]
         #@ldap.modify(:dn => x.dn, :operations => operations)
-        #print "", @ldap.get_operation_result.message, "\n"
+        @ldap.replace_attribute(x.dn, "platform=jpn", "platform=#{change_to_platform}")
+        print "", @ldap.get_operation_result.message, "\n"
       }
   end
 
