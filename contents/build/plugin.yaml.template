@@ -8,5 +8,5 @@ providers:
       service: WorkflowStep
       plugin-type: script
       script-interpreter: /usr/bin/env ruby
-      script-file: runtimehandler.rb
+      script-file: runtime.rb
       script-args: jira check ticketnumber 

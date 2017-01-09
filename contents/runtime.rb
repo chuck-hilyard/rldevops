@@ -9,7 +9,7 @@ require_relative 'ticketing/jira/resthandler.rb'
 require_relative 'qamutable/qamutablehandler.rb'
 
 
-class RunTimeHandler
+class RunTime
 
     attr_reader :data_container
 
@@ -42,5 +42,5 @@ class RunTimeHandler
 end
 
 
-runtime = RunTimeHandler.new
+runtime = RunTime.new
 runtime.exec_task(ARGV)

@@ -42,7 +42,7 @@ export RD_OPTION_PLATFORM="can"
 
 if [ "$*" ]
     then 
-        /usr/bin/env ruby runtimehandler.rb $@
+        /usr/bin/env ruby runtime.rb $@
 
     else
         cliusage
