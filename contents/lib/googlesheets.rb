@@ -11,10 +11,10 @@
 require 'rest-client'
 require 'json'
 
-class GoogleSheetsAPI
+class GoogleSheets
     
   def initialize
-    print "GoogleSheetsAPI::initialize\n"
+    print "GoogleSheets::initialize\n"
     apikey = "AIzaSyD59fSXFLZty357UAMlSrmBBj6qzKxFyEQ"
     @uri = URI("https://sheets.googleapis.com/v4/spreadsheets/1JRfAZfmdtOHOWc3NofTkXVMofKoKs1xCWBFWo6P3wg0/values/A2%3AB2?valueInputOption=FORMATTED_VALUE&key=AIzaSyD59fSXFLZty357UAMlSrmBBj6qzKxFyEQ")
     valuerange_json = { 
@@ -29,7 +29,7 @@ class GoogleSheetsAPI
 
   # this is specfic to the qa environment worksheet
   def update_qa_worksheet(range)
-    print "GoogleSheetsAPI::update_qa_worksheet\n"
+    print "GoogleSheets::update_qa_worksheet\n"
     spreadsheetId = "1JRfAZfmdtOHOWc3NofTkXVMofKoKs1xCWBFWo6P3wg0"
     sheetId = 0
 
